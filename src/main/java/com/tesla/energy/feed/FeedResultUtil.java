@@ -5,7 +5,6 @@ import static com.tesla.energy.model.Partition.ONE;
 import static com.tesla.energy.model.Partition.THREE;
 import static com.tesla.energy.model.Partition.TWO;
 
-import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
 import com.tesla.energy.file.FileServiceImpl;
 import com.tesla.energy.model.FeedResult;
@@ -14,10 +13,9 @@ import java.io.IOException;
 
 public class FeedResultUtil {
 
-  private static final int BATCH_SIZE = 4000;
 
   public static void distributedBatchWrite(FeedResult feedResult,
-      Multimap<Partition, String> feedResultBatchMap, String outputFilePath)
+      Multimap<Partition, String> feedResultBatchMap, String outputFilePath, final int batchSize)
       throws IOException {
 
     Partition partition = feedResult.getPartition();
@@ -44,10 +42,9 @@ public class FeedResultUtil {
         break;
     }
 
-    if (feedResultBatchMap.size() == BATCH_SIZE) {
+    if (feedResultBatchMap.size() == batchSize) {
 
       FileServiceImpl.writeOutputFiles(outputFilePath, feedResultBatchMap);
-      feedResultBatchMap = ArrayListMultimap.create();
     }
   }
 }
