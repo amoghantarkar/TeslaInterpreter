@@ -50,7 +50,8 @@ public class FileServiceImplTest {
   @Test
   public void writeOutputFiles() throws IOException {
 
-    boolean isSuccess = FileServiceImpl.writeOutputFiles(outputFileDirPath, feedResultBatchMap);
+    boolean isSuccess = FileServiceImpl
+        .writeOutputFiles(outputFileDirPath + "test-", feedResultBatchMap);
     assertTrue(isSuccess);
   }
 

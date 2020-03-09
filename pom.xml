@@ -3,7 +3,25 @@
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <artifactId>TeslaInterpreter</artifactId>
-
+  <build>
+    <plugins>
+      <plugin>
+        <!-- Build an executable JAR -->
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <classpathPrefix>lib/</classpathPrefix>
+              <mainClass>com.tesla.energy.app.TeslaEnergyInterpreter</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+        <groupId>org.apache.maven.plugins</groupId>
+        <version>3.1.0</version>
+      </plugin>
+    </plugins>
+  </build>
   <dependencies>
     <dependency>
       <artifactId>junit</artifactId>
@@ -18,18 +36,6 @@
       <version>4.12</version>
     </dependency>
     <dependency>
-      <artifactId>junit</artifactId>
-      <groupId>junit</groupId>
-      <scope>test</scope>
-      <version>4.12</version>
-    </dependency>
-    <dependency>
-      <artifactId>annotations</artifactId>
-      <groupId>org.jetbrains</groupId>
-      <scope>compile</scope>
-      <version>RELEASE</version>
-    </dependency>
-    <dependency>
       <artifactId>guava</artifactId>
       <groupId>com.google.guava</groupId>
       <version>23.0</version>
@@ -39,16 +45,16 @@
       <groupId>org.apache.logging.log4j</groupId>
       <version>2.7</version>
     </dependency>
-    <dependency>
-      <artifactId>log4j-core</artifactId>
-      <groupId>org.apache.logging.log4j</groupId>
-      <version>2.7</version>
-    </dependency>
-    <dependency>
-      <artifactId>log4j-slf4j-impl</artifactId>
-      <groupId>org.apache.logging.log4j</groupId>
-      <version>2.7</version>
-    </dependency>
+    <!--    <dependency>-->
+    <!--      <artifactId>log4j-core</artifactId>-->
+    <!--      <groupId>org.apache.logging.log4j</groupId>-->
+    <!--      <version>2.7</version>-->
+    <!--    </dependency>-->
+    <!--    <dependency>-->
+    <!--      <artifactId>log4j-slf4j-impl</artifactId>-->
+    <!--      <groupId>org.apache.logging.log4j</groupId>-->
+    <!--      <version>2.7</version>-->
+    <!--    </dependency>-->
     <dependency>
       <artifactId>junit-jupiter-api</artifactId>
       <groupId>org.junit.jupiter</groupId>
@@ -59,6 +65,18 @@
       <artifactId>mockito-all</artifactId>
       <groupId>org.mockito</groupId>
       <version>1.9.5</version>
+    </dependency>
+    <dependency>
+      <artifactId>slf4j-api</artifactId>
+      <groupId>org.slf4j</groupId>
+      <version>1.7.2</version>
+    </dependency>
+
+    <!-- LOG4J -->
+    <dependency>
+      <artifactId>slf4j-log4j12</artifactId>
+      <groupId>org.slf4j</groupId>
+      <version>1.7.25</version>
     </dependency>
   </dependencies>
   <groupId>tesla</groupId>

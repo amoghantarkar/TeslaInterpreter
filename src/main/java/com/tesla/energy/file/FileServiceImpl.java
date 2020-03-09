@@ -18,7 +18,7 @@ import org.slf4j.LoggerFactory;
 public class FileServiceImpl implements FileService {
 
   private static final org.slf4j.Logger LOGGER = LoggerFactory
-      .getLogger(Class.class.getSimpleName());
+      .getLogger(FileServiceImpl.class);
   private static final int PARTITION_MAX = 4;
   private static final String OUTPUT_FILE_PREFIX_NAME = "output-file-";
 
@@ -77,6 +77,7 @@ public class FileServiceImpl implements FileService {
       }
 
       if (!feedResultBatchMap.isEmpty()) {
+        LOGGER.debug("Writing remaining result to file: " + outputFilePath);
         writeOutputFiles(outputFilePath, feedResultBatchMap);
       }
 

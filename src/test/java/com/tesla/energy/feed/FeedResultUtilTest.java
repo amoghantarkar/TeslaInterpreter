@@ -40,7 +40,7 @@ public class FeedResultUtilTest {
   @Test
   void distributedBatchWrite_IfWritingToMultipleFiles_returnsTrue() {
     try {
-      int batchSize = 3;
+      int batchSize = 1000;
       FeedResultUtil
           .distributedBatchWrite(feedResult, feedResultBatchMap, outputFilePath, batchSize);
     } catch (IOException e) {

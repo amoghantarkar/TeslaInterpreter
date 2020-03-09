@@ -3,19 +3,21 @@ package com.tesla.energy.app;
 import com.tesla.energy.file.FileService;
 import com.tesla.energy.file.FileServiceImpl;
 import com.tesla.energy.file.FileUtil;
+import org.apache.log4j.PropertyConfigurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
 public class TeslaEnergyInterpreter {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(Class.class.getSimpleName());
+  private static final Logger LOGGER = LoggerFactory.getLogger(TeslaEnergyInterpreter.class);
 
   public static void main(String[] args) {
 
     String inputFileNamePath = args[0];
     String outputDirectoryPath = args[1];
-
+    PropertyConfigurator
+        .configure(TeslaEnergyInterpreter.class.getClassLoader().getResource("log4j.properties"));
     LOGGER.info("Input File path: " + inputFileNamePath);
     LOGGER.info("Output directory path: " + outputDirectoryPath);
 

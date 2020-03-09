@@ -10,9 +10,12 @@ import com.tesla.energy.file.FileServiceImpl;
 import com.tesla.energy.model.FeedResult;
 import com.tesla.energy.model.Partition;
 import java.io.IOException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class FeedResultUtil {
 
+  private static final Logger LOGGER = LoggerFactory.getLogger(FeedResultUtil.class);
 
   public static void distributedBatchWrite(FeedResult feedResult,
       Multimap<Partition, String> feedResultBatchMap, String outputFilePath, final int batchSize)
@@ -44,6 +47,7 @@ public class FeedResultUtil {
 
     if (feedResultBatchMap.size() == batchSize) {
 
+      LOGGER.debug("Batch write : " + feedResultBatchMap.size());
       FileServiceImpl.writeOutputFiles(outputFilePath, feedResultBatchMap);
     }
   }
