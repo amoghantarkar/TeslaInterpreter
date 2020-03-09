@@ -8,28 +8,29 @@ import org.slf4j.LoggerFactory;
 
 
 public class TeslaEnergyInterpreter {
-    final static Logger LOGGER = LoggerFactory.getLogger(Class.class.getSimpleName());
 
-    public static void main(String[] args) {
+  final static Logger LOGGER = LoggerFactory.getLogger(Class.class.getSimpleName());
 
-        String inputFileNamePath = args[0];
-        String outputDirectoryPath = args[1];
+  public static void main(String[] args) {
 
-        LOGGER.info("Input File path: ", inputFileNamePath);
-        LOGGER.info("Output directory path: ", outputDirectoryPath);
+    String inputFileNamePath = args[0];
+    String outputDirectoryPath = args[1];
 
-        if (FileUtil.verifyFilePath(inputFileNamePath) && FileUtil
-                .verifyFileDirectory(outputDirectoryPath)) {
-            FileService fileProcessorService = new FileServiceImpl();
-            boolean success = fileProcessorService
-                    .interpretFile(inputFileNamePath, outputDirectoryPath);
-            if (success) {
-                LOGGER.info("Written output to directory: " + outputDirectoryPath);
-            } else {
-                LOGGER.error("Unable to interpret file");
-            }
-        }
+    LOGGER.info("Input File path: ", inputFileNamePath);
+    LOGGER.info("Output directory path: ", outputDirectoryPath);
 
-
+    if (FileUtil.verifyFilePath(inputFileNamePath) && FileUtil
+        .verifyFileDirectory(outputDirectoryPath)) {
+      FileService fileProcessorService = new FileServiceImpl();
+      boolean success = fileProcessorService
+          .interpretFile(inputFileNamePath, outputDirectoryPath);
+      if (success) {
+        LOGGER.info("Written output to directory: " + outputDirectoryPath);
+      } else {
+        LOGGER.error("Unable to interpret file");
+      }
     }
+
+
+  }
 }
