@@ -30,7 +30,7 @@ public class FileServiceImplTest {
     inputFilePath = file.getPath();
 
     File outputFile = new File(
-        getClass().getClassLoader().getResource("output.csv").getFile()
+        getClass().getClassLoader().getResource("sample-output.csv").getFile()
     );
     String feedLine = "1505233687039,3,4fc18980-0f65-4033-b5b5-4a64effba2f5,#nine,#one,#ten,#two,#seven,#three,#eight,#six,#four";
     feedResult = new FeedResult("1505233687039", "4fc18980-0f65-4033-b5b5-4a64effba2f5",
@@ -41,7 +41,7 @@ public class FileServiceImplTest {
     feedResultBatchMap.put(Partition.TWO, feedLine);
     feedResultBatchMap.put(Partition.ONE, feedLine);
     feedResultBatchMap.put(Partition.FOUR, feedLine);
-    outputFileDirPath = outputFile.getPath().split("output.csv")[0];
+    outputFileDirPath = outputFile.getPath().split("sample-output.csv")[0];
     LOGGER.info("Input File path: " + inputFilePath);
     LOGGER.info("Output directory path: " + outputFileDirPath);
 

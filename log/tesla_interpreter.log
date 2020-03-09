@@ -29,3 +29,13 @@ INFO main com.tesla.energy.app.TeslaEnergyInterpreter - Input File path: /Users/
 INFO main com.tesla.energy.app.TeslaEnergyInterpreter - Output directory path: /Users/amoghantarkar/Documents/Projects/Tesla/TeslaInterpreter/target/classes/
 DEBUG main com.tesla.energy.file.FileServiceImpl - Writing result to output files: /Users/amoghantarkar/Documents/Projects/Tesla/TeslaInterpreter/target/classes/output-file-
 INFO main com.tesla.energy.app.TeslaEnergyInterpreter - Written output to directory: /Users/amoghantarkar/Documents/Projects/Tesla/TeslaInterpreter/target/classes/
+INFO main com.tesla.energy.app.TeslaEnergyInterpreter - Input File path: /Users/amoghantarkar/Documents/Projects/Tesla/TeslaInterpreter/target/classes/sample.txt
+INFO main com.tesla.energy.app.TeslaEnergyInterpreter - Output directory path: /Users/amoghantarkar/Documents/Projects/Tesla/TeslaInterpreter/target/classes/
+DEBUG main com.tesla.energy.file.FileServiceImpl - Writing result to output files: /Users/amoghantarkar/Documents/Projects/Tesla/TeslaInterpreter/target/classes/output-file-
+INFO main com.tesla.energy.app.TeslaEnergyInterpreter - Written output to directory: /Users/amoghantarkar/Documents/Projects/Tesla/TeslaInterpreter/target/classes/
+INFO main Class - Input File path: /Users/amoghantarkar/Documents/Projects/Tesla/TeslaInterpreter/target/classes/sample.txt
+INFO main Class - Output directory path: /Users/amoghantarkar/Documents/Projects/Tesla/TeslaInterpreter/target/classes/
+DEBUG main com.tesla.energy.file.FileServiceImpl - Writing result to output files: /Users/amoghantarkar/Documents/Projects/Tesla/TeslaInterpreter/target/classes/output-file-
+INFO main Class - Input File path: /Users/amoghantarkar/Documents/Projects/Tesla/TeslaInterpreter/target/classes/sample.txt
+INFO main Class - Output directory path: /Users/amoghantarkar/Documents/Projects/Tesla/TeslaInterpreter/target/classes/
+DEBUG main com.tesla.energy.feed.FeedInterpreter - Timestamp is before 1970, Jan 1st: 1 Jan 1970 00:00:00 GMT Timestamp 0000000000060
