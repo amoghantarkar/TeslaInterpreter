@@ -25,13 +25,13 @@ public class FileServiceImpl implements FileService {
   /**
    * Writes to all the output files based on the partition
    *
-   * @param outputFilePath     output file path
+   * @param outputFilePath output file path
    * @param feedResultBatchMap a {@link Multimap} of batch of interpreted lines
-   * @throws IOException
    */
-  public static void writeOutputFiles(final String outputFilePath,
+  public static boolean writeOutputFiles(final String outputFilePath,
       Multimap<Partition, String> feedResultBatchMap) throws IOException {
 
+    boolean operationSuccess = false;
     for (int i = 1; i <= PARTITION_MAX; i++) {
       String outputPartitionFilePath =
           outputFilePath + i + ".csv"; //produces as many files as the PARTITION_MAX
@@ -50,7 +50,10 @@ public class FileServiceImpl implements FileService {
           writer.println(result);
         }
       }
+      operationSuccess = true;
     }
+
+    return operationSuccess;
 
   }
 
@@ -58,6 +61,7 @@ public class FileServiceImpl implements FileService {
   public boolean interpretFile(String inputFilePath, String outputFileDirPath) {
 
     boolean operationSuccess = false;
+    final int batchSize = 4000;
     String outputFilePath = outputFileDirPath + OUTPUT_FILE_PREFIX_NAME;
     Multimap<Partition, String> feedResultBatchMap = ArrayListMultimap.create();
     String line;
@@ -67,7 +71,7 @@ public class FileServiceImpl implements FileService {
         Optional<FeedResult> feedResult = FeedInterpreter.interpretLine(line);
         if (feedResult.isPresent()) {
           FeedResultUtil
-              .distributedBatchWrite(feedResult.get(), feedResultBatchMap, outputFilePath);
+              .distributedBatchWrite(feedResult.get(), feedResultBatchMap, outputFilePath, batchSize);
         }
       }
 

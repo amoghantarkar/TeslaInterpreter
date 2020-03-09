@@ -7,7 +7,7 @@ public interface FileService {
    * write it to four different output files at output directory {@code outputDirectoryPath} based
    * on the partition value
    *
-   * @param inputPath           input file path
+   * @param inputPath input file path
    * @param outputDirectoryPath output directory path
    * @return a boolean to indicate the success/failure of file interpretation
    */
