@@ -77,7 +77,7 @@ public class FileServiceImpl implements FileService {
       }
 
       if (!feedResultBatchMap.isEmpty()) {
-        LOGGER.debug("Writing remaining result to file: " + outputFilePath);
+        LOGGER.debug("Writing result to output files: " + outputFilePath);
         writeOutputFiles(outputFilePath, feedResultBatchMap);
       }
 
