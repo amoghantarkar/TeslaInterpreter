@@ -71,7 +71,8 @@ public class FileServiceImpl implements FileService {
         Optional<FeedResult> feedResult = FeedInterpreter.interpretLine(line);
         if (feedResult.isPresent()) {
           FeedResultUtil
-              .distributedBatchWrite(feedResult.get(), feedResultBatchMap, outputFilePath, batchSize);
+              .distributedBatchWrite(feedResult.get(), feedResultBatchMap, outputFilePath,
+                  batchSize);
         }
       }
 
